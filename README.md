@@ -18,7 +18,8 @@ You can check out https://medium.com/@udayp/caffe-faster-r-cnn-on-microsoft-azur
 
 3.	We need to install a few more packages to compile and run Caffe with OpenCV. Run the followings commands in the terminal. 
 
-	```conda install -c auto easydict
+	```
+	conda install -c auto easydict
 	conda install -c anaconda readline
 	conda install -c anaconda opencv 
 	```
@@ -31,17 +32,20 @@ You can check out https://medium.com/@udayp/caffe-faster-r-cnn-on-microsoft-azur
 
 5.	Step 4 creates a folder called py-faster-rcnn-azure-dlvm. First build Cython by executing the command given below (make command should be executed in py-faster-rcnn-azure-dlvm/lib folder). This step is optional as the repository already is built. But this may be necessary in the future if there are any changes in DLVM OS or hardware. 
 
-	```cd py-faster-rcnn-azure-dlvm/lib
+	```
+	cd py-faster-rcnn-azure-dlvm/lib
 	make
 	``` 
 
 6.	Next step is to build caffe and pycaffe. Run the commands given below. 
-	```cd ../caffe-fast-rcnn
+	```
+	cd ../caffe-fast-rcnn
 	make -j6 && make pycaffe
 	```
 	First command is to navigate to py-faster-rcnn-azure-dlvm/caffe-fast-rcnn folder. Second command is for building caffe and pycaffe. You can build faster by using -j option for multi-threading. The option is -jn where n is the number of CPUs on your VM. For NC6 the option is -j6, for NC12 it is -j12 and so on.
 7.	Now that Caffe R-CNN is built, you can test it using the pre-trained models shared by Ross Girshick. Run the following commands.
-	```cd ..
+	```
+	cd ..
 	./data/scripts/fetch_faster_rcnn_models.sh
 	./data/scripts/fetch_faster_rcnn_models.sh
 	./tools/demo.py
